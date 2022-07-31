@@ -4,7 +4,7 @@ pipeline{
         stage('gitcheckout'){
             steps{
                 echo 'checkout git repo'
-                checkout([$class: 'GitSCM', branches: [[name: '*/develop']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'mygitbackup']], userRemoteConfigs: [[ url: 'https://github.com/Rajyasri3009/jenkins_casestudy_website.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/develop']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], userRemoteConfigs: [[ url: 'https://github.com/Rajyasri3009/jenkins_casestudy_website.git']]])
             }
         }
         stage('build'){
@@ -13,8 +13,14 @@ pipeline{
             }
         }
         stage('publish'){
+            when{
+                expression{
+                    BRANCH_NAME=='master'
+                }
+            }
             steps{
-               echo 'For develop branch no publishing event'
+               echo 'Copy files to html folder'
+                sh 'cp -r /var/lib/jenkins/workspace/cms-app-prod/* /var/www/html'
             }
         }
     }
