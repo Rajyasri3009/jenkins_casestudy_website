@@ -14,7 +14,7 @@ pipeline{
         }
         stage('publish'){
             steps{
-               echo 'For develop branch no publishing'
+               echo 'For develop branch no publishing event'
             }
         }
     }
