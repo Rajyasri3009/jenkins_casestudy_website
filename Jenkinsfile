@@ -9,7 +9,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                echo 'build process complete '+BRANCH_NAME
+                echo 'build process complete, branch name is '+BRANCH_NAME
             }
         }
         stage('publish'){
