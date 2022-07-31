@@ -20,7 +20,7 @@ pipeline{
             }
             steps{
                echo 'Copy files to html folder'
-                sh 'cp -r /var/lib/jenkins/workspace/cms-app-prod/* /var/www/html'
+                sh 'cp -r /var/lib/jenkins/workspace/cms-app-prod_master/* /var/www/html'
             }
         }
     }
