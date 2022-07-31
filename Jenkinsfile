@@ -13,14 +13,8 @@ pipeline{
             }
         }
         stage('publish'){
-            when{
-                expression{
-                    BRANCH_NAME=='master'
-                }
-            }
             steps{
-               echo 'Copy files to html folder'
-                sh 'cp -r /var/lib/jenkins/workspace/dev-cms/mygitbackup/* /var/www/html'
+               echo 'For develop branch no publishing'
             }
         }
     }
