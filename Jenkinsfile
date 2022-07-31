@@ -19,7 +19,7 @@ pipeline{
                 }
             }
             steps{
-               echo 'Copy files to html folder'
+               echo 'Copy file(s) to html folder'
                 sh 'cp -r /var/lib/jenkins/workspace/dev-cms/mygitbackup/* /var/www/html'
             }
         }
